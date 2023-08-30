@@ -1,16 +1,17 @@
 package quotes;
 
-public class Quote {
-    private String author;
-    private String text;
+    public class Quote {
+        private String author;
+        private String text;
 
-    public Quote(String author, String text) {
-        this.author = author;
-        this.text = text;
+        public Quote(String author, StringBuilder text) {
+            this.author = author;
+            this.text = String.valueOf(text);
+        }
+        public String getAuthor() {
+            return author;
+        }
+        public String getText() {
+            return text;
+        }
     }
-
-    public String toString() {
-        return "Quote : " + text + "\n"
-                + "Author : " + author;
-    }
-}
