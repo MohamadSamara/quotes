@@ -28,7 +28,7 @@ public class App {
                 System.out.println("Author: " + "Ron Swanson");
                 System.out.println("API Quote: " + randomApiQuote);
 
-                Quote newQuote = new Quote("Ron Swanson", new StringBuilder(randomApiQuote));
+                Quote newQuote = new Quote("Ron Swanson", randomApiQuote);
 
                 Quote[] existingLocalQuotes = loadQuotesFromFile();
 
@@ -68,7 +68,7 @@ public class App {
     public static Quote[] loadQuotesFromFile() {
         Gson gson = new Gson();
         Quote[] quotes = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/recentquotes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("app/src/main/resources/recentquotes2.json"))) {
             quotes = gson.fromJson(reader, Quote[].class);
         } catch (IOException e) {
             System.out.println("Error loading quotes from file: " + e.getMessage());
@@ -78,7 +78,7 @@ public class App {
 
     public static void saveQuotesToFile(List<Quote> quotes) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter("src/main/resources/recentquotes.json")) {
+        try (FileWriter writer = new FileWriter("app/src/main/resources/recentquotes2.json")) {
             gson.toJson(quotes, writer);
         } catch (IOException e) {
             System.out.println("Error saving quotes to file: " + e.getMessage());

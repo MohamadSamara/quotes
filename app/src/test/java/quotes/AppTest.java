@@ -37,8 +37,8 @@ class AppTest {
     @Test
     public void testSaveAndLoadQuotes() {
         List<Quote> quotes = new ArrayList<>(Arrays.asList(
-                new Quote("Author1", new StringBuilder("Quote1")),
-                new Quote("Author2", new StringBuilder("Quote2"))
+                new Quote("Author1", "Quote1"),
+                new Quote("Author2", "Quote2")
         ));
 
         App.saveQuotesToFile(quotes);
@@ -72,11 +72,11 @@ class AppTest {
     @Test
     public void testIsDuplicateQuote() {
         Quote[] quotes = {
-                new Quote("Author1", new StringBuilder("Quote1")),
-                new Quote("Author2", new StringBuilder("Quote2"))
+                new Quote("Author1", "Quote1"),
+                new Quote("Author2", "Quote2")
         };
 
-        Quote newQuote = new Quote("Author1", new StringBuilder("Quote1"));
+        Quote newQuote = new Quote("Author1", "Quote1");
 
         assertTrue(App.isDuplicateQuote(quotes, newQuote));
     }
@@ -84,11 +84,11 @@ class AppTest {
     @Test
     public void testIsNotDuplicateQuote() {
         Quote[] quotes = {
-                new Quote("Author1", new StringBuilder("Quote1")),
-                new Quote("Author2", new StringBuilder("Quote2"))
+                new Quote("Author1", "Quote1"),
+                new Quote("Author2", "Quote2")
         };
 
-        Quote newQuote = new Quote("Author3", new StringBuilder("Quote3"));
+        Quote newQuote = new Quote("Author3", "Quote3");
 
         assertFalse(App.isDuplicateQuote(quotes, newQuote));
     }
@@ -96,11 +96,11 @@ class AppTest {
     @Test
     public void testSaveQuote() {
         Quote[] existingQuotes = {
-                new Quote("Author1", new StringBuilder("Quote1")),
-                new Quote("Author2", new StringBuilder("Quote2"))
+                new Quote("Author1", "Quote1"),
+                new Quote("Author2", "Quote2")
         };
 
-        Quote newQuote = new Quote("Author3", new StringBuilder("Quote3"));
+        Quote newQuote = new Quote("Author2", "Quote2");
 
         App.saveQuote(newQuote, existingQuotes);
 
